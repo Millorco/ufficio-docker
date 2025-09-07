@@ -1,1 +1,21 @@
-.
+version: "3"
+
+services:
+  webserver:
+    build:
+      context: .
+    container_name: webserver
+    restart: "always"
+    volumes:
+      - /DOCKER/volume/webserver/www:/var/www/html:rw
+      - /DOCKER/volume/webserver/config/php/php.ini:/usr/local/etc/php/php.ini
+      - /DOCKER/volume/webserver/config/ssl:/etc/apache2/ssl/
+      - /DOCKER/volume/webserver/config/vhosts:/etc/apache2/sites-enabled
+      - /DOCKER/volume/webserver/logs/apache2:/var/log/apache2
+    environment:
+      APACHE_DOCUMENT_ROOT: /var/www/html-/var/www/html
+      PMA_PORT: 8078
+      MYSQL_ROOT_PASSWORD: password
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    network_mode: host
