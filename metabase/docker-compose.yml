@@ -1,1 +1,20 @@
-.
+version: '3.8'
+
+services:
+  metabase:
+    build:
+      context: .
+    restart: always
+    container_name: metabase
+    environment:
+      MB_DB_TYPE: mysql
+      MB_DB_DBNAME: matabase
+      MB_DB_PORT: 3306
+      MB_DB_USER: metabase
+      MB_DB_HOST: 'db'
+      MB_DB_PASS: password
+    volumes:
+      - /DOCKER/volume/metabase/mb-data:/metabase-data
+    network_mode: host
+
+
