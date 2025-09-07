@@ -8,7 +8,7 @@ services:
     container_name: metabase
     environment:
       MB_DB_TYPE: mysql
-      MB_DB_DBNAME: matabase
+      MB_DB_DBNAME: metabase
       MB_DB_PORT: 3306
       MB_DB_USER: metabase
       MB_DB_HOST: 'db'
