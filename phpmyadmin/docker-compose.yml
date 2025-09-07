@@ -7,7 +7,7 @@ services:
     container_name: phpmyadmin
     restart: "always"    
     environment:
-      PMA_ARBITRARY=1 
+      PMA_ARBITRARY: 1 
       PMA_PORT: 3306
       UPLOAD_LIMIT: 512M
       MEMORY_LIMIT: 512M
