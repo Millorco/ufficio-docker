@@ -9,11 +9,11 @@ services:
     volumes:
       - /DOCKER/volume/joget:/opt/joget/wflow 
     environment:
-      MYSQL_HOST=db
-	  MYSQL_DATABASE=joget 
-	  MYSQL_PORT=3306 
-	  MYSQL_USER=joget 
-	  MYSQL_PASSWORD=password
+      MYSQL_HOST: db
+	  MYSQL_DATABASE: joget 
+	  MYSQL_PORT: 3306 
+	  MYSQL_USER: joget 
+	  MYSQL_PASSWORD: password
     network_mode: host
 
 
