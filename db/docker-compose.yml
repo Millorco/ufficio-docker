@@ -1,1 +1,16 @@
+version: "3"
 
+services:
+  database:
+    build:
+      context: .
+    container_name: dbserver
+    restart: "always"
+    volumes:
+      - /DOCKER/volume/db/config/initdb:/docker-entrypoint-initdb.d
+      - /DOCKER/volume/db/data/mysql:/var/lib/mysql
+      - /DOCKER/volume/db/logs/mysql:/var/log/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_HOST: '%'
+    network_mode: host
