@@ -1,20 +1,20 @@
 version: "3"
 
 services:
-  database:
+  joget:
     build:
       context: .
-    container_name: dbserver
+    container_name: joget
     restart: "always"
     volumes:
-      - /DOCKER/volume/db/config/initdb:/docker-entrypoint-initdb.d
-      - /DOCKER/volume/db/data/mysql:/var/lib/mysql
-      - /DOCKER/volume/db/logs/mysql:/var/log/mysql
+      - /DOCKER/volume/joget:/opt/joget/wflow 
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_ROOT_HOST: '%'
+      MYSQL_HOST=db
+	  MYSQL_DATABASE=joget 
+	  MYSQL_PORT=3306 
+	  MYSQL_USER=joget 
+	  MYSQL_PASSWORD=password
     network_mode: host
-
 
 
     
