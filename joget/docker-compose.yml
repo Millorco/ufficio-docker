@@ -13,8 +13,13 @@ services:
 	  MYSQL_DATABASE: joget 
 	  MYSQL_PORT: 3306 
 	  MYSQL_USER: joget 
-	  MYSQL_PASSWORD: password
-    network_mode: host
+	  MYSQL_PASSWORD: joget
+    networks:
+      - polizia
+
+networks:
+  polizia:
+    external: true
 
 
     
