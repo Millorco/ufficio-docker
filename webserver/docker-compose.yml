@@ -6,6 +6,7 @@ services:
       context: .
     container_name: web
     restart: "always"
+    network_mode: "host"
     volumes:
       - /DOCKER/volume/webserver/www:/var/www/html:rw
       - /DOCKER/volume/webserver/config/php/php.ini:/usr/local/etc/php/php.ini
@@ -18,9 +19,4 @@ services:
       MYSQL_ROOT_PASSWORD: password
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    networks:
-      - polizia
 
-networks:
-  polizia:
-    external: true
