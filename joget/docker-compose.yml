@@ -8,7 +8,9 @@ services:
     restart: "always"
     volumes:
       - /DOCKER/volume/joget:/opt/joget/wflow 
-    environment:
+    ports:
+      - 8080:8080
+	environment:
       MYSQL_HOST: db
 	  MYSQL_DATABASE: joget 
 	  MYSQL_PORT: 3306 
