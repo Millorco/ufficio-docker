@@ -4,7 +4,7 @@ services:
   webserver:
     build:
       context: .
-    container_name: webserver
+    container_name: web
     restart: "always"
     volumes:
       - /DOCKER/volume/webserver/www:/var/www/html:rw
@@ -18,4 +18,9 @@ services:
       MYSQL_ROOT_PASSWORD: password
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    network_mode: host
+    networks:
+      - polizia
+
+networks:
+  polizia:
+    external: true
