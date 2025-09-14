@@ -13,12 +13,12 @@ services:
       MEMORY_LIMIT: 512M
     ports:
       - 8078:80
-    networks:
-      - network-lan
     volumes:
       - /DOCKER/volume/phpmyadmin/sessions
       - /DOCKER/volume/phpmyadmin/config/php/php.ini:/usr/local/etc/php/conf.d/php-phpmyadmin.ini
-     
+    networks:
+      - polizia
+
 networks:
-  network-lan:
-    driver: bridge
+  polizia:
+    external: true
