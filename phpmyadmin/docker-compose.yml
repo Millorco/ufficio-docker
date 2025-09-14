@@ -5,20 +5,15 @@ services:
     build:
       context: .
     container_name: phpmyadmin
-    restart: "always"    
+    restart: "always"
+    network_mode: "host"
     environment:
-      PMA_ARBITRARY: 1 
+      APACHE_HTTP_PORT_NUMBER: 8090
+      PMA_ARBITRARY: 1
       PMA_PORT: 3306
       UPLOAD_LIMIT: 512M
       MEMORY_LIMIT: 512M
-    ports:
-      - 8078:80
+    command: /bin/bash -c "sed -i \"s/80/$$APACHE_HTTP_PORT_NUMBER/g\" /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf && /docker-entrypoint.sh >
     volumes:
       - /DOCKER/volume/phpmyadmin/sessions
       - /DOCKER/volume/phpmyadmin/config/php/php.ini:/usr/local/etc/php/conf.d/php-phpmyadmin.ini
-    networks:
-      - polizia
-
-networks:
-  polizia:
-    external: true
