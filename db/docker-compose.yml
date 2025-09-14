@@ -6,6 +6,7 @@ services:
       context: .
     container_name: db
     restart: "always"
+    network_mode: "host"
     volumes:
       - /DOCKER/volume/db/config/initdb:/docker-entrypoint-initdb.d
       - /DOCKER/volume/db/data/mysql:/var/lib/mysql
@@ -13,9 +14,3 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_ROOT_HOST: '%'
-    networks:
-      - polizia
-
-networks:
-  polizia:
-    external: true
