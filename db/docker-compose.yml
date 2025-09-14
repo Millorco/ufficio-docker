@@ -4,7 +4,7 @@ services:
   database:
     build:
       context: .
-    container_name: dbserver
+    container_name: db
     restart: "always"
     volumes:
       - /DOCKER/volume/db/config/initdb:/docker-entrypoint-initdb.d
