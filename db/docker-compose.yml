@@ -13,4 +13,5 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_ROOT_HOST: '%'
-    network_mode: host
+    networks:
+      - polizia
